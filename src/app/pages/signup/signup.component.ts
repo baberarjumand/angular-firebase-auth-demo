@@ -1,3 +1,4 @@
+import { UserAuthService } from './../../shared/services/user-auth.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   AbstractControl,
@@ -19,7 +20,7 @@ export class SignupComponent implements OnInit, OnDestroy {
   signUpFormGroup: FormGroup;
   signUpFormSub: Subscription;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private authService: UserAuthService) {}
 
   ngOnInit(): void {
     this.signUpFormGroup = this.fb.group({
@@ -84,10 +85,12 @@ export class SignupComponent implements OnInit, OnDestroy {
   }
 
   onGoogleSignUp(): void {
-    console.log('Google Sign Up clicked!');
+    // console.log('Google Sign Up clicked!');
+    this.authService.facebookSignIn();
   }
 
   onFacebookSignUp(): void {
-    console.log('Facebook Sign Up clicked!');
+    // console.log('Facebook Sign Up clicked!');
+    this.authService.facebookSignIn();
   }
 }

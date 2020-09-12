@@ -1,5 +1,8 @@
+import { UserAuthService } from './../../shared/services/user-auth.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,9 +13,20 @@ export class LoginComponent implements OnInit {
   validateEmailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
   loginFormGroup: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: UserAuthService,
+    private afAuth: AngularFireAuth,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
+    // this.afAuth.getRedirectResult().then((result) => {
+    //   if (result.user) {
+    //     this.router.navigate(['']);
+    //   }
+    // });
+
     this.loginFormGroup = this.fb.group({
       userEmail: [
         '',
@@ -40,10 +54,12 @@ export class LoginComponent implements OnInit {
   }
 
   onGoogleLogin(): void {
-    console.log('Google Login Clicked');
+    // console.log('Google Login Clicked');
+    this.authService.googleSignIn();
   }
 
   onFacebookLogin(): void {
-    console.log('Facebook Login Clicked');
+    // console.log('Facebook Login Clicked');
+    this.authService.facebookSignIn();
   }
 }

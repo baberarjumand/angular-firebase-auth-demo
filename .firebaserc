@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-firebase-auth-de-ceb97": {
+      "hosting": {
+        "angular-firebase-auth-demo": [
+          "angular-firebase-auth-de-ceb97"
+        ]
+      }
+    }
+  }
+}
