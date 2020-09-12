@@ -76,8 +76,11 @@ export class SignupComponent implements OnInit, OnDestroy {
 
   onSubmitSignUp(): void {
     if (this.signUpFormGroup.valid) {
-      console.log('Sign Up Form Values Valid!', this.signUpFormGroup.value);
+      // console.log('Sign Up Form Values Valid!', this.signUpFormGroup.value);
       // console.log(this.signUpFormGroup.value);
+      const email = this.signUpFormGroup.value.userEmail;
+      const password = this.signUpFormGroup.value.userPassword;
+      this.authService.createNewUserWithEmailPassword(email, password);
     } else {
       console.log('Sign Up Form Values Invalid!', this.signUpFormGroup.value);
       // console.log(this.signUpFormGroup.value);

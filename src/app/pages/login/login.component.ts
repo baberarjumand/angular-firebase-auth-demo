@@ -45,8 +45,11 @@ export class LoginComponent implements OnInit {
 
   onSubmitLogin(): void {
     if (this.loginFormGroup.valid) {
-      console.log('Login Form Values Valid!', this.loginFormGroup.value);
+      // console.log('Login Form Values Valid!', this.loginFormGroup.value);
       // console.log(this.loginFormGroup.value);
+      const email = this.loginFormGroup.value.userEmail;
+      const password = this.loginFormGroup.value.userPassword;
+      this.authService.signInUserWithEmailPassword(email, password);
     } else {
       console.log('Login Form Values Invalid!', this.loginFormGroup.value);
       // console.log(this.loginFormGroup.value);

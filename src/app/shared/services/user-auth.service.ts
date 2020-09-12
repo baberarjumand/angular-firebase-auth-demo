@@ -75,6 +75,38 @@ export class UserAuthService {
     await this.signInWithProvider(provider);
   }
 
+  async createNewUserWithEmailPassword(
+    email: string,
+    password: string
+  ): Promise<void> {
+    await this.afAuth
+      .createUserWithEmailAndPassword(email, password)
+      .then((credential: any) => {
+        this.ngZone.run(() => this.router.navigate(['home']));
+        return this.updateUserDataInDb(credential.user);
+      })
+      .catch((error) => {
+        console.log(error);
+        window.alert(error);
+      });
+  }
+
+  async signInUserWithEmailPassword(
+    email: string,
+    password: string
+  ): Promise<void> {
+    await this.afAuth
+      .signInWithEmailAndPassword(email, password)
+      .then((credential: any) => {
+        this.ngZone.run(() => this.router.navigate(['home']));
+        return this.updateUserDataInDb(credential.user);
+      })
+      .catch((error) => {
+        console.log(error);
+        window.alert(error);
+      });
+  }
+
   async signOut(): Promise<void> {
     await this.afAuth.signOut();
     this.router.navigate(['/login']);
