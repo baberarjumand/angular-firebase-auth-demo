@@ -59,6 +59,8 @@ export class SignupComponent implements OnInit, OnDestroy {
     }
   }
 
+  // match password solution found at:
+  // https://stackoverflow.com/questions/51605737/confirm-password-validation-in-angular-6
   private matchValues(
     matchTo: string // name of the control to match to
   ): (AbstractControl) => ValidationErrors | null {
