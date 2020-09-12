@@ -1,5 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 
+// css import required for firebaseui-angular
+@import "~firebaseui/dist/firebaseui.css";
+
 .vh100 {
   height: 100vh;
 }

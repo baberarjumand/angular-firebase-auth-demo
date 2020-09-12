@@ -1,7 +1,31 @@
 <div class="container-fluid">
   <div class="row vh100">
-    <div class="col-10 offset-1 col-sm-6 offset-sm-3 my-auto">
-      <h1 class="text-center">Home</h1>
+    <div class="col-10 offset-1 col-sm-6 offset-sm-3 my-auto text-center">
+      <h1>Home</h1>
+      <div *ngIf="this.authService.authState() | async as user">
+        <img
+          [src]="user.photoURL"
+          width="300px"
+          height="300px"
+          *ngIf="user.photoURL"
+        />
+        <p class="mt-3">
+          UID: <b>{{ user.uid }}</b>
+        </p>
+        <p>
+          User Display Name:
+          <b>{{ user.displayName ? user.displayName : "No Display Name" }}</b>
+        </p>
+        <p>
+          User Email: <b>{{ user.email }}</b>
+        </p>
+        <p>
+          User Email Verified: <b>{{ user.emailVerified }}</b>
+        </p>
+        <button class="btn btn-primary" (click)="this.authService.logOut()">
+          Logout
+        </button>
+      </div>
     </div>
   </div>
 </div>
