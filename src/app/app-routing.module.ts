@@ -13,13 +13,13 @@ const routes: Routes = [
       import('./pages/signup/signup.module').then((m) => m.SignupModule),
   },
   {
-    path: 'home',
+    path: '',
     loadChildren: () =>
       import('./pages/home/home.module').then((m) => m.HomeModule),
   },
   {
     path: '**',
-    redirectTo: 'home',
+    redirectTo: '',
     pathMatch: 'full',
   },
 ];

@@ -1,1 +1,51 @@
-<p>login works!</p>
+<div class="container-fluid">
+  <div class="row vh100">
+    <div class="col-10 offset-1 col-sm-6 offset-sm-3 my-auto">
+      <h1 class="text-center">Login</h1>
+      <form [formGroup]="this.loginFormGroup" (ngSubmit)="this.onSubmitLogin()">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input
+            type="email"
+            class="form-control"
+            id="exampleInputEmail1"
+            aria-describedby="emailHelp"
+            formControlName="userEmail"
+          />
+          <!-- <small id="emailHelp" class="form-text text-muted"
+            >We'll never share your email with anyone else.</small
+          > -->
+        </div>
+        <div class="form-group">
+          <label for="exampleInputPassword1">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            formControlName="userPassword"
+          />
+        </div>
+        <button type="submit" class="btn btn-success w-100">Login</button>
+        <p class="text-center mt-3">Or login with:</p>
+        <div class="row my-3">
+          <div class="col">
+            <button class="btn btn-danger w-100" (click)="this.onGoogleLogin()">
+              Google
+            </button>
+          </div>
+          <div class="col">
+            <button
+              class="btn btn-primary w-100"
+              (click)="this.onFacebookLogin()"
+            >
+              Facebook
+            </button>
+          </div>
+        </div>
+        <p class="text-center">
+          Don't have an account? Go to <a routerLink="/signup">Sign Up</a>!
+        </p>
+      </form>
+    </div>
+  </div>
+</div>
