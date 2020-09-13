@@ -2,6 +2,12 @@
   <div class="row vh100">
     <div class="col-10 offset-1 col-sm-6 offset-sm-3 my-auto text-center">
       <h1>Home</h1>
+      <p>
+        <i
+          >This is a protected route. Only authenticated users will be able to
+          access this route.</i
+        >
+      </p>
       <div *ngIf="this.authService.authState() | async as user">
         <img
           [src]="user.photoURL"

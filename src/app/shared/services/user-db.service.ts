@@ -22,29 +22,31 @@ export class UserDbService {
   }
 
   updateUserInDb(userObj): void {
-    // console.log(userObj);
+    if (userObj) {
+      // console.log(userObj);
 
-    const tempUser: User = {
-      uid: userObj.uid,
-      email: userObj.email,
-      displayName: userObj.displayName,
-      photoURL: userObj.photoURL,
-      emailVerified: userObj.emailVerified,
-    };
+      const tempUser: User = {
+        uid: userObj.uid,
+        email: userObj.email,
+        displayName: userObj.displayName,
+        photoURL: userObj.photoURL,
+        emailVerified: userObj.emailVerified,
+      };
 
-    if (userObj.providerData.length > 0) {
-      tempUser.authProviders = [];
-      for (const provider of userObj.providerData) {
-        tempUser.authProviders.push(provider.providerId);
+      if (userObj.providerData.length > 0) {
+        tempUser.authProviders = [];
+        for (const provider of userObj.providerData) {
+          tempUser.authProviders.push(provider.providerId);
+        }
       }
+
+      // console.log(tempUser);
+
+      const userDocRef: AngularFirestoreDocument<User> = this.afs.doc(
+        `users/${userObj.uid}`
+      );
+
+      userDocRef.set(tempUser, { merge: true });
     }
-
-    // console.log(tempUser);
-
-    const userDocRef: AngularFirestoreDocument<User> = this.afs.doc(
-      `users/${userObj.uid}`
-    );
-
-    userDocRef.set(tempUser, { merge: true });
   }
 }

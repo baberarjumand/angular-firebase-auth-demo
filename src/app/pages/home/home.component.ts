@@ -1,5 +1,4 @@
 import { UserDbService } from './../../shared/services/user-db.service';
-import { firebase } from 'firebaseui-angular';
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { UserAuthService } from 'src/app/shared/services/user-auth.service';

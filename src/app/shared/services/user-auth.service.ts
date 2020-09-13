@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import {
+  FirebaseuiAngularLibraryService,
   FirebaseUISignInFailure,
   FirebaseUISignInSuccessWithAuthResult,
 } from 'firebaseui-angular';
@@ -11,7 +12,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class UserAuthService {
-  constructor(private afAuth: AngularFireAuth, private router: Router) {}
+  constructor(
+    private afAuth: AngularFireAuth,
+    private router: Router,
+    private firebaseuiAngularLibraryService: FirebaseuiAngularLibraryService
+  ) {
+    this.firebaseuiAngularLibraryService.firebaseUiInstance.disableAutoSignIn();
+  }
 
   authState(): Observable<any> {
     return this.afAuth.authState;
@@ -23,7 +30,7 @@ export class UserAuthService {
   }
 
   successCallback(data: FirebaseUISignInSuccessWithAuthResult): void {
-    console.log('successCallback', data);
+    // console.log('successCallback', data);
     this.router.navigate(['']);
   }
 
@@ -32,7 +39,7 @@ export class UserAuthService {
   }
 
   uiShownCallback(): void {
-    console.log('UI shown');
+    // console.log('UI shown');
   }
 
   // requestVerificationEmail(): void {
