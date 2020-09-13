@@ -34,4 +34,8 @@ export class UserAuthService {
   uiShownCallback(): void {
     console.log('UI shown');
   }
+
+  // requestVerificationEmail(): void {
+  //   // switched sign-in mode to 'Sign in via email link'
+  // }
 }

@@ -2,11 +2,16 @@
   <div class="row vh100">
     <div class="col-10 offset-1 col-sm-6 offset-sm-3 my-auto">
       <h1 class="text-center">Login</h1>
-      <firebase-ui
-        (signInSuccessWithAuthResult)="this.authService.successCallback($event)"
-        (signInFailure)="this.authService.errorCallback($event)"
-        (uiShown)="this.authService.uiShownCallback()"
-      ></firebase-ui>
+      <div class="my-5">
+        <firebase-ui
+          (signInSuccessWithAuthResult)="
+            this.authService.successCallback($event)
+          "
+          (signInFailure)="this.authService.errorCallback($event)"
+          (uiShown)="this.authService.uiShownCallback()"
+        ></firebase-ui>
+      </div>
+
       <!-- <form [formGroup]="this.loginFormGroup" (ngSubmit)="this.onSubmitLogin()">
         <div class="form-group">
           <label for="exampleInputEmail1">Email address</label>

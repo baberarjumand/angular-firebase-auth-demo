@@ -22,7 +22,17 @@
         <p>
           User Email Verified: <b>{{ user.emailVerified }}</b>
         </p>
-        <button class="btn btn-primary" (click)="this.authService.logOut()">
+        <!-- <button
+          class="btn btn-info w-100"
+          (click)="this.authService.requestVerificationEmail()"
+          *ngIf="!user.emailVerified"
+        >
+          Request Verification Email
+        </button> -->
+        <button
+          class="btn btn-primary w-100 my-3"
+          (click)="this.authService.logOut()"
+        >
           Logout
         </button>
       </div>

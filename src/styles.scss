@@ -3,6 +3,14 @@
 // css import required for firebaseui-angular
 @import "~firebaseui/dist/firebaseui.css";
 
+:root {
+  --gray: #bfbfbf;
+  --light-gray: #ededed;
+  --dark-gray: #191919;
+  --light-purple: #3c3cd6;
+  --dark-purple: #2a398c;
+}
+
 .vh100 {
   height: 100vh;
 }
