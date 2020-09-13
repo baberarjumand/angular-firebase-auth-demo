@@ -1,5 +1,12 @@
 # AngularFirebaseAuthDemo
 
+This mini-project is a demo of the features provided by Firebase Authentication. The [FirebaseUI-Angular](https://github.com/RaphaelJenni/FirebaseUI-Angular) library was leveraged, which already implements optimized flows for most use-cases.
+
+A live demo of this project can be viewed here:<br>
+https://angular-firebase-auth-de-ceb97.web.app
+
+P.S. A more customizable/manual approach for implementing customized flows for user authentication is documented in the 'firebaseauth' branch. That implementation is not yet complete.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.0.
 
 ## Development server
