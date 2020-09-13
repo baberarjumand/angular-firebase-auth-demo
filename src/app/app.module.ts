@@ -1,3 +1,4 @@
+import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -41,7 +42,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     // firebase.auth.TwitterAuthProvider.PROVIDER_ID,
     // firebase.auth.GithubAuthProvider.PROVIDER_ID,
     {
-      requireDisplayName: false,
+      requireDisplayName: true,
       provider: firebase.auth.EmailAuthProvider.PROVIDER_ID,
       // signInMethod:
       //   firebase.auth.EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD,
@@ -65,6 +66,7 @@ const firebaseUiAuthConfig: firebaseui.auth.Config = {
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     FirebaseUIModule.forRoot(firebaseUiAuthConfig),
   ],
   providers: [],

@@ -26,7 +26,11 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "scripts": [],
-            "allowedCommonJsDependencies": ["firebase/app"]
+            "allowedCommonJsDependencies": [
+              "firebase/app",
+              "@firebase/app",
+              "@firebase/firestore"
+            ]
           },
           "configurations": {
             "production": {
